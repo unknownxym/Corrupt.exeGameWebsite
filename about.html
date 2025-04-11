@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Corrupt.exe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1161.cur'), auto;
+        }
+
+        html, body {
+            height: 100%;
+            background-color: #000;
+            color: #00ff88;
+            font-family: 'Share Tech Mono', monospace;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: absolute;
+            top: 70px; /* Adjust this value to lower the nav bar */
+            width: 20%;
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #00ff88;
+            font-size: 1.2rem;
+            margin: 0 20px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00ffaa;
+        }
+
+        /* Logo in top left */
+        img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            max-width: 120px;
+        }
+
+        h1 {
+            margin-top: 70px;
+            font-size: 3rem;
+        }
+
+        /* About Us content */
+        .content {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            line-height: 1.8;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateX(-100%); /* Initially hidden off-screen */
+            transition: all 0.5s ease-in-out;
+        }
+
+        .content.show {
+            opacity: 1;
+            transform: translateX(0); /* Slide in from left */
+        }
+
+        .content.hidden {
+            opacity: 0;
+            transform: translateX(100%); /* Slide out to the right */
+        }
+
+        .content h2 {
+            margin-top: 40px;
+            color: #00ffaa;
+        }
+
+        .content p {
+            color: #00ff88;
+        }
+
+        /* Back link */
+        .back-link {
+            margin-top: 50px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #00ff88;
+            border: 1px solid #00ff88;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            background-color: #00ff88;
+            color: #000;
+        }
+
+        /* Arrow Button */
+        .arrow-button {
+            margin-top: 20px;
+            font-size: 2rem;
+            color: #00ff88;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .arrow-button:hover {
+            transform: translateY(5px);
+        }
+
+        /* Big Arrow for Slide-in Trigger */
+        .big-arrow {
+            margin-top: 30px;
+            font-size: 4rem;
+            color: #00ff88;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .big-arrow:hover {
+            transform: translateY(5px);
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #00ff88;
+            color: #000;
+            padding: 5px 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            display: none;
+            z-index: 1;
+        }
+
+        .big-arrow:hover .tooltip {
+            display: block;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .social-icons a {
+            color: #00ff88;
+            margin: 0 15px;
+            font-size: 2rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: #00ffaa;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact Us</a>
+</nav>
+
+<!-- Logo -->
+<img src="logo corrupt.png" alt="Logo">
+
+<h1>About Corrupt.exe</h1>
+
+<!-- Big Arrow to Trigger Slide-in -->
+<div class="big-arrow" id="bigArrow">
+    &#8594;
+    <div class="tooltip">Read more</div>
+</div>
+
+<!-- First Section Initially Visible -->
+<div class="content show" id="aboutUsSection1">
+    <p>
+        💻 **Corrupt.exe** is a journey into the digital underworld—a place where your skills are your only asset, and survival is a game of wits. You start with nothing—just an old laptop, a hacked Wi-Fi signal, and a rusted-out van parked behind a gas station. You're a low-level hacker scraping by on shady gigs and stolen code. But when things go wrong, it all comes crashing down.
+    </p>
+</div>
+
+<!-- Hidden Sections -->
+<div class="content hidden" id="aboutUsSection2">
+    <p>
+        The cops trace one of your scripts, kick down your door, and seize everything. You barely escape. Now you're on the run, off the grid, and hungry. No backups. No safety nets. Just your skills and your drive to claw your way back up.
+    </p>
+</div>
+
+<div class="content hidden" id="aboutUsSection3">
+    <h2>Rebuilding From The Shadows</h2>
+    <p>
+        You begin again—small-time at first. Keyloggers, spoofed emails, skimming wallets. But each job funds better gear, deeper access, and more dangerous targets. Your rep grows. So does the risk.
+    </p>
+</div>
+
+<div class="content hidden" id="aboutUsSection4">
+    <h2>The Digital Empire</h2>
+    <p>
+        You're building a digital empire from the shadows—but the heat is always one step behind. Will you rise to become a legend of the cybercrime underworld—or will they catch you before you even get your hands dirty?
+    </p>
+</div>
+
+<div class="content hidden" id="aboutUsSection5">
+    <h2>No Rules. No Heroes.</h2>
+    <p>
+        This is the world of **Corrupt.exe**. No rules. No heroes. Just code, chaos, and survival.
+    </p>
+</div>
+
+<!-- Placeholder About the Devs Section -->
+<div class="content hidden" id="aboutDevsSection">
+    <h2>About the Devs</h2>
+    <p>
+        We are a bunch of kids who dreamed to make a game for fun so yeah come join our discord server.
+        <br><br>
+        Stay tuned for more updates from us behind the code!
+    </p>
+</div>
+
+<!-- Back Link -->
+<a href="index.html" class="back-link">Back to Home</a>
+
+<!-- Social Media Icons -->
+<div class="social-icons">
+    <a href="https://discord.gg/3FcTtS9cnq" title="Discord" target="_blank"><i class="fab fa-discord"></i></a> <!-- Discord Icon -->
+    <a href="https://www.reddit.com/r/CorruptexeGame/" title="Reddit" target="_blank"><i class="fab fa-reddit"></i></a> <!-- Reddit Icon -->
+    <a href="https://github.com" title="GitHub" target="_blank"><i class="fab fa-github"></i></a> <!-- GitHub Icon -->
+    <a href="https://www.tiktok.com" title="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a> <!-- TikTok Icon -->
+</div>
+
+<script>
+    // Select all the sections
+    const sections = document.querySelectorAll('.content');
+    let currentSectionIndex = 0; // Start with the first section
+
+    // Select the big arrow button
+    const bigArrow = document.getElementById('bigArrow');
+
+    // Function to show the next section and cycle through the content
+    function showNextSection() {
+        // Hide the current section
+        sections[currentSectionIndex].classList.remove('show');
+        sections[currentSectionIndex].classList.add('hidden');
+
+        // Move to the next section, and cycle back if we reach the end
+        currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+
+        // Show the next section
+        sections[currentSectionIndex].classList.remove('hidden');
+        sections[currentSectionIndex].classList.add('show');
+    }
+
+    // Add event listener to the big arrow to trigger the slide-in effect
+    bigArrow.addEventListener('click', showNextSection);
+</script>
+
+</body>
+</html>
